@@ -121,6 +121,76 @@ To reset all changes in the working directory:
 git reset --hard
 ```
 
+## 15. Git Hash (SHA-1)
+Every commit in Git is identified by a unique hash (also known as a commit ID). This is a SHA-1 hash function that produces a 40-character hexadecimal string. You can see the hash of your commits when you run:
+
+```bash
+git log
+```
+
+Example output:
+
+```
+commit a9f5d8f3e4f2b8578971ebf438d209de768f21d5 (HEAD -> master)
+```
+
+## 16. Git HEAD
+`HEAD` is a pointer that points to the current branch or commit. By default, it points to the latest commit in the current branch. You can use `HEAD` to refer to the tip of the branch in various commands. For example:
+
+```bash
+git checkout HEAD^  # Move one commit back
+git reset HEAD~2    # Move two commits back
+```
+
+## 17. Git Log Customization
+To see a condensed log with only commit messages and hashes:
+
+```bash
+git log --oneline
+```
+
+You can also view logs with graphical representations:
+
+```bash
+git log --graph --oneline
+```
+
+## 18. File Statuses and the Lifecycle of Files
+In Git, files can be in one of the following statuses:
+
+1. **Untracked**: The file is new and not yet tracked by Git.
+2. **Modified**: The file has changes but has not been added to the staging area.
+3. **Staged**: The file has been added to the staging area with `git add` and is ready for commit.
+4. **Committed**: The changes are saved in the Git history.
+
+Here's a simplified representation of the file lifecycle:
+
+```mermaid
+graph TD;
+    A[Untracked] --> B[Modified];
+    B --> C[Staged];
+    C --> D[Committed];
+    B -->|git add| C;
+    C -->|git commit| D;
+```
+
+## 19. Commit Message Best Practices
+Clear and descriptive commit messages are crucial for project collaboration and history tracking. Follow these guidelines:
+
+- Use the imperative mood: "Add", "Fix", "Update".
+- Keep the subject line under 50 characters.
+- Separate the subject from the body with a blank line.
+- Provide additional details in the body if necessary, especially for complex changes.
+
+Example:
+
+```
+Add new feature to enhance performance
+
+- Optimized the data caching mechanism
+- Refactored the database query for faster retrieval
+```
+
 ---
 
-By mastering these commands, you'll have a strong foundation for using Git effectively in your projects.
+By mastering these commands and concepts, you'll have a strong foundation for using Git effectively in your projects.
